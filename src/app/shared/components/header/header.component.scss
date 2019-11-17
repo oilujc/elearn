@@ -1,0 +1,132 @@
+    @import '../../../../assets/scss/_animations';
+    @import '../../../../assets/scss/_global';
+    .navbar {
+        background-color: $white;
+        border-bottom: 1px solid rgba(177, 173, 173, 0.274);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        .container {
+            .collapse {
+                .navbar-nav {
+                    .nav-item {
+                        .nav-link {
+                            color: $gray !important;
+                            font-family: lato, sans-serif;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+        .search-box {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 1rem 8rem;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            input {
+                width: 100%;
+                color: #6b797c;
+                font-weight: 400;
+                font-size: 15px;
+                font-family: lato, sans-serif;
+                border: none;
+                border-bottom: 1px solid #6b797c;
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+            &.open {
+                display: block;
+                animation: slide-bottom 0.3s cubic-bezier(0.25, 0.460, 0.450, 0.940) both;
+            }
+            &.hide {
+                display: none;
+            }
+        }
+    }
+    
+    @media screen and (min-width: 993px) {
+        .navbar {
+            .container {
+                .btn-sidebar,
+                .btn-search {
+                    display: none;
+                }
+                .collapse {
+                    .navbar-nav {
+                        .nav-item {
+                            &.user-item {
+                                border-radius: 20px;
+                                width: 40px;
+                                height: 40px;
+                                text-align: center;
+                                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+                                margin-right: 1rem;
+                                &.dropdown {
+                                    .dropdown-toggle {
+                                        &:after {
+                                            content: none
+                                        }
+                                    }
+                                }
+                            }
+                            &.search-item {
+                                border-radius: 20px;
+                                width: 40px;
+                                height: 40px;
+                                text-align: center;
+                                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+                                position: relative;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @media screen and (max-width: 992px) {
+        .navbar {
+            .container {
+                .btn-sidebar,
+                .btn-search {
+                    background-color: #fff;
+                    font-size: 20px;
+                    border: none;
+                    padding: .4rem 1rem;
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+                .sidebar {
+                    position: absolute;
+                    z-index: -1;
+                    top: 4rem;
+                    background-color: #fff;
+                    height: 100vh;
+                    width: 80%;
+                    padding-top: 1rem;
+                    border-right: 1px solid rgba(177, 173, 173, 0.274);
+                    .navbar-nav {
+                        .nav-item {
+                            .nav-link {
+                                color: $gray !important;
+                                font-family: lato, sans-serif;
+                                font-weight: 500;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+            .search-box {
+                padding: 1.9rem 1rem;
+            }
+        }
+    }
